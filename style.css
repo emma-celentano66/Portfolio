@@ -19,6 +19,7 @@ html,
 body {
     margin: 0;
     min-height: 100%;
+    height: 100%;
 }
 
 body {
@@ -31,11 +32,12 @@ body {
         linear-gradient(145deg, #050406 0%, var(--night) 58%, #0b0608 100%);
     display: grid;
     place-items: center;
-    padding: 3rem 1.25rem;
+    padding: 0.9rem;
 }
 
 .card {
-    width: min(1120px, 100%);
+    width: min(1600px, 97vw);
+    min-height: calc(100vh - 1.8rem);
     background:
         linear-gradient(90deg, transparent 0 24px, rgba(255, 255, 255, 0.03) 24px 25px, transparent 25px),
         linear-gradient(135deg, var(--panel) 0%, var(--panel-deep) 100%);
@@ -46,6 +48,8 @@ body {
     overflow: hidden;
     box-shadow: 0 30px 70px rgba(0, 0, 0, 0.58), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
     animation: rise 750ms ease-out;
+    display: flex;
+    flex-direction: column;
 }
 
 .card::before,
@@ -153,6 +157,7 @@ body {
     grid-template-columns: 1.7fr 1fr;
     gap: 3.5rem;
     margin-top: 3rem;
+    flex: 1;
 }
 
 .hero-title {
@@ -295,6 +300,15 @@ body {
 }
 
 @media (max-width: 900px) {
+    body {
+        padding: 0.65rem;
+    }
+
+    .card {
+        width: min(100%, 100vw - 1.3rem);
+        min-height: calc(100vh - 1.3rem);
+    }
+
     .layout {
         grid-template-columns: 1fr;
         gap: 2.2rem;
@@ -307,6 +321,7 @@ body {
 
 @media (max-width: 600px) {
     .card {
+        min-height: calc(100vh - 1rem);
         padding: 1.4rem 1.1rem;
     }
 

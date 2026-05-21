@@ -1,0 +1,335 @@
+:root {
+    --night: #050506;
+    --fog: #0f0a0c;
+    --panel: #1a0c10;
+    --panel-deep: #0d0608;
+    --ink: #f1e8ea;
+    --ink-soft: #beafb3;
+    --parchment: #f2d9de;
+    --gold: #c72f47;
+    --bronze: #761828;
+    --line: #3c1b23;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Cormorant Garamond", serif;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 14% 12%, rgba(155, 41, 64, 0.28) 0%, transparent 35%),
+        radial-gradient(circle at 88% 78%, rgba(102, 21, 38, 0.3) 0%, transparent 33%),
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0 2px, transparent 2px 5px),
+        linear-gradient(145deg, #050406 0%, var(--night) 58%, #0b0608 100%);
+    display: grid;
+    place-items: center;
+    padding: 3rem 1.25rem;
+}
+
+.card {
+    width: min(1120px, 100%);
+    background:
+        linear-gradient(90deg, transparent 0 24px, rgba(255, 255, 255, 0.03) 24px 25px, transparent 25px),
+        linear-gradient(135deg, var(--panel) 0%, var(--panel-deep) 100%);
+    border-radius: 10px;
+    border: 1px solid rgba(199, 47, 71, 0.36);
+    padding: 2.2rem 2.4rem 2.6rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.58), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    animation: rise 750ms ease-out;
+}
+
+.card::before,
+.card::after {
+    content: "";
+    position: absolute;
+    width: 148px;
+    height: 148px;
+    opacity: 0.95;
+    pointer-events: none;
+    background: linear-gradient(135deg, var(--gold), #f3e6b0 46%, var(--bronze));
+    clip-path: polygon(0 0, 100% 0, 78% 22%, 22% 22%, 22% 78%, 0 100%);
+}
+
+.card::before {
+    top: -22px;
+    left: -22px;
+}
+
+.card::after {
+    right: -22px;
+    bottom: -22px;
+    transform: rotate(180deg);
+}
+
+.card-etch {
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(242, 217, 222, 0.14);
+    border-radius: 7px;
+    pointer-events: none;
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    width: 54px;
+    height: 54px;
+    border: 1px solid rgba(242, 217, 222, 0.35);
+    display: grid;
+    place-items: center;
+    color: var(--parchment);
+    font-family: "Uncial Antiqua", serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.03em;
+    background: linear-gradient(145deg, #300f17, #12070a);
+    clip-path: polygon(50% 0, 92% 16%, 92% 56%, 50% 100%, 8% 56%, 8% 16%);
+    text-shadow: 0 0 16px rgba(199, 47, 71, 0.58);
+}
+
+.socials {
+    display: flex;
+    gap: 0.9rem;
+}
+
+.socials a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.38rem;
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 0.82rem;
+    font-family: "Cinzel", serif;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: 1px solid var(--line);
+    padding: 0.36rem 0.58rem;
+    border-radius: 4px;
+    transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.social-icon {
+    width: 0.72rem;
+    height: 0.72rem;
+    color: #ffffff;
+    display: block;
+    flex-shrink: 0;
+}
+
+.social-icon.stroke {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.social-icon.fill {
+    fill: #ffffff;
+}
+
+.socials a:hover {
+    color: #fff3f6;
+    border-color: rgba(199, 47, 71, 0.75);
+    transform: translateY(-2px);
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1.7fr 1fr;
+    gap: 3.5rem;
+    margin-top: 3rem;
+}
+
+.hero-title {
+    margin: 0;
+    font-family: "Uncial Antiqua", serif;
+    font-size: clamp(2.6rem, 7vw, 5rem);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    color: #ffe9ee;
+    text-shadow: 0 0 30px rgba(199, 47, 71, 0.22);
+}
+
+.intro {
+    margin-top: 1.5rem;
+    max-width: 66ch;
+    padding-left: 1rem;
+    border-left: 3px solid rgba(199, 47, 71, 0.8);
+    color: #cfbfc4;
+    line-height: 1.7;
+    font-size: 1.08rem;
+}
+
+.intro:first-of-type::first-letter {
+    font-family: "Uncial Antiqua", serif;
+    color: var(--gold);
+    font-size: 1.8em;
+    padding-right: 0.05em;
+    line-height: 0.8;
+}
+
+.projects h2 {
+    font-family: "Cinzel", serif;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #ffdbe2;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.project-list {
+    list-style: none;
+    padding: 0 0 0 1.5rem;
+    margin: 1.1rem 0 0;
+    border-left: 2px solid rgba(199, 47, 71, 0.68);
+}
+
+.project-list li {
+    margin: 0 0 0 0.5rem;
+    color: rgba(242, 217, 222, 0.75);
+}
+
+.project-list a {
+    display: block;
+    color: #c4cad7;
+    text-decoration: none;
+    padding: 0.52rem 0 0.52rem 0.65rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: color 180ms ease, background-color 180ms ease;
+    letter-spacing: 0.02em;
+}
+
+.project-list a:hover {
+    color: #ffeef2;
+    background-color: rgba(199, 47, 71, 0.14);
+}
+
+.footer {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    color: #9f8e94;
+    font-size: 0.85rem;
+    font-family: "Cinzel", serif;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.fade {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp 560ms ease forwards;
+}
+
+.fade.one {
+    animation-delay: 120ms;
+}
+
+.fade.two {
+    animation-delay: 260ms;
+}
+
+.fade.three {
+    animation-delay: 400ms;
+}
+
+.spark {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(199, 47, 71, 0.28), transparent 66%);
+    top: -55px;
+    right: 7%;
+    filter: blur(2px);
+    animation: ember 4.4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes rise {
+    from {
+        transform: translateY(16px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ember {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 900px) {
+    .layout {
+        grid-template-columns: 1fr;
+        gap: 2.2rem;
+    }
+
+    .footer {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    .card {
+        padding: 1.4rem 1.1rem;
+    }
+
+    .card::before,
+    .card::after {
+        width: 94px;
+        height: 94px;
+    }
+
+    .socials {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .socials a {
+        font-size: 0.78rem;
+        padding: 0.32rem 0.5rem;
+    }
+
+    .spark {
+        width: 120px;
+        height: 120px;
+        right: -10px;
+        top: -24px;
+    }
+}

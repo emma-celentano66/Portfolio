@@ -1,16 +1,25 @@
-.about-card {
+.resume-card {
     min-height: 100vh;
     min-height: 100dvh;
 }
 
-.about-content {
+.resume-hero {
     position: relative;
     z-index: 1;
     margin-top: clamp(1rem, 2.5vh, 2rem);
-    max-width: min(90ch, 100%);
+    max-width: min(88ch, 100%);
 }
 
-.about-sections {
+.resume-kicker {
+    margin: 0 0 0.85rem 0;
+    font-family: "Cinzel", serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #f6bcc8;
+}
+
+.resume-sections {
     margin-top: clamp(2rem, 5vh, 3.8rem);
     position: relative;
     z-index: 1;
@@ -19,7 +28,7 @@
     gap: clamp(2.2rem, 5vh, 4rem);
 }
 
-.about-section {
+.resume-section {
     display: flex;
     flex-direction: column;
     gap: 0.95rem;
@@ -28,21 +37,12 @@
     border-bottom: 1px solid rgba(255, 215, 223, 0.18);
 }
 
-.about-section:last-child {
+.resume-section:last-child {
     border-bottom: 0;
     padding-bottom: 0;
 }
 
-.about-section h2 {
-    margin: 0;
-    font-family: "Cinzel", serif;
-    font-size: clamp(1.45rem, 2.5vw, 2.35rem);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: #ffd7df;
-}
-
-.about-section .section-label {
+.resume-section .section-label {
     margin: 0;
     font-family: "Cinzel", serif;
     font-size: 0.82rem;
@@ -51,24 +51,39 @@
     color: #f6bcc8;
 }
 
-.about-section p {
+.resume-section h2 {
+    margin: 0;
+    font-family: "Cinzel", serif;
+    font-size: clamp(1.45rem, 2.5vw, 2.35rem);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #ffd7df;
+}
+
+.resume-section p {
     margin: 0;
     color: #cfbfc4;
     line-height: 1.65;
     font-size: clamp(1rem, 1.18vw, 1.14rem);
 }
 
-@media (max-width: 700px) {
-    .about-content .intro {
-        margin-top: 1rem;
-    }
+.resume-list {
+    margin: 0;
+    padding-left: 1.3rem;
+    color: #cfbfc4;
+    display: grid;
+    gap: 0.7rem;
+    font-size: clamp(1rem, 1.18vw, 1.14rem);
+    line-height: 1.55;
+}
 
-    .about-sections {
+@media (max-width: 700px) {
+    .resume-sections {
         margin-top: 1.8rem;
         gap: 2rem;
     }
 
-    .about-section {
+    .resume-section {
         gap: 0.75rem;
         padding-bottom: 1.6rem;
     }
